@@ -30,3 +30,5 @@ AI learnings
 # open items
 * set up ollama and run a model probably llama 3.1
 * windows subsystem for linux 
+
+
