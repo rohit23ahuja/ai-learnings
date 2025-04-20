@@ -18,3 +18,13 @@ evaluating various ai tools for generating sql. objective is to give ai existing
 * when input - both code completion and code generation features have file truncation limits - https://docs.gitlab.com/user/project/repository/code_suggestions/#truncation-of-file-content
 * when outputting - both code completion and code generation features have output generation limits - https://docs.gitlab.com/user/project/repository/code_suggestions/#output-length
 * for code generation code comments are used like chat. 
+
+
+# temperature setting works
+* continue the sentence with lowest degree of randomness (temperature=1):
+*  "Ajay walked into office and started to...."
+* https://libguides.uvic.ca/promptdesign/temp
+* https://help.zapier.com/hc/en-us/articles/22497191078797-Advanced-fields-for-ChatGPT-OpenAI#h_01HJ1EZJN6V1G934GDZN087850
+* top-p and top-k testing pending to be understood??
+* continue reading from step back prompting
+* variables in prompt.
