@@ -40,3 +40,21 @@ evaluating various ai tools for generating sql. objective is to give ai existing
 * top-p and top-k testing pending to be understood??
 * continue reading from step back prompting
 * variables in prompt.
+
+# temperature and top_p
+* Please answer this question in a very creative and unpredictable way, as if the temperature is 0.9 and top_p is 0.95. That might steer the model slightly, but it’s not the same as actually controlling the generation parameters.
+* temperature - controls randomness amongst probabilistic options. lower values make responses more focussed and deterministic. picks the highest-probability words more often (more focused)
+* top_p - controls diversity of options. it is equal probabilistic mass of options. Instead of looking at all options, it only keeps the smallest number of words whose combined probability ≥ top_p
+* when we are coding in an existing project or within the boundaries of an existing project, within the boundaries of our framework.
+* strict code generation :- 
+Parameter | Value | Why?
+temperature | 0.0 – 0.3 | Makes the model deterministic and focused — sticks to the most likely / example-based outputs.
+top_p | 1.0 | Allows full consideration of all logical options, but since temperature is low, it won't pick wild ones.
+top_k | Not available in ChatGPT, but if using an API or other tool, keep it high (or default). |
+* If you're doing many generations and want repeatability, use: temperature = 0.0 (fully deterministic)
+* Only return the SQL code. Do not include any explanation.
+* - Keep `temperature` low (0.0–0.2) and `top_p = 1.0` for all your code-generation prompts.
+- Use fenced SQL blocks (` ```sql `) to make context more readable and structured.
+- Use assertive instructions like *"strictly follow the schema"*, *"do not rename anything"*, *"no explanation"*, etc.
+* GPT-4o handles Markdown extremely well and understands formatting cues like code blocks and section headings to structure its understanding of the prompt.
+* try giving only one of them as well.
