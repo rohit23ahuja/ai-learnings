@@ -48,13 +48,22 @@ evaluating various ai tools for generating sql. objective is to give ai existing
 * when we are coding in an existing project or within the boundaries of an existing project, within the boundaries of our framework.
 * strict code generation :- 
 Parameter | Value | Why?
-temperature | 0.0 – 0.3 | Makes the model deterministic and focused — sticks to the most likely / example-based outputs.
+temperature | 0.0 – 0.1 | Makes the model deterministic and focused — sticks to the most likely / example-based outputs.
 top_p | 1.0 | Allows full consideration of all logical options, but since temperature is low, it won't pick wild ones.
 top_k | Not available in ChatGPT, but if using an API or other tool, keep it high (or default). |
 * If you're doing many generations and want repeatability, use: temperature = 0.0 (fully deterministic)
 * Only return the SQL code. Do not include any explanation.
-* - Keep `temperature` low (0.0–0.2) and `top_p = 1.0` for all your code-generation prompts.
-- Use fenced SQL blocks (` ```sql `) to make context more readable and structured.
-- Use assertive instructions like *"strictly follow the schema"*, *"do not rename anything"*, *"no explanation"*, etc.
+* Keep `temperature` low (0.0–0.2) and `top_p = 1.0` for all your code-generation prompts.
+* Use fenced SQL blocks (` ```sql `) to make context more readable and structured.
+* Use assertive instructions like *"strictly follow the schema"*, *"do not rename anything"*, *"no explanation"*, etc.
 * GPT-4o handles Markdown extremely well and understands formatting cues like code blocks and section headings to structure its understanding of the prompt.
 * try giving only one of them as well.
+* testing of top_p and temperature
+* truncating context aiden
+* gitlab duo multiple files 
+* add results to the user message or system message before you send a request.
+* To dissect this even further : 
+  * generate embeddings from your prompt (call embedding service, get vectors for your text)
+  * search vector database for similarities using the resulting vector(s)
+  * add text results to you user or system message
+  * send request to the LLM.
